@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">АИС "Кафе от Коляна и Илюши"</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'registration' %}">Регистрация</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        {{ user.username }} | <a href="{% url 'logout_user' %}">Выход</a>
+      </span>
+    </div>
+  </div>
+</nav>
+<div class="mb-3 ">
+<form method="post">
+
+      {% csrf_token %}
+      {{addT.id_tovara}}
+      {{addT.id_postav}}
+      {{addT.name}}
+      {{addT.kol_vo}}
+      {{addT.cena}}
+  <button type="submit" class="btn btn-primary mb-3 mt-2 ms-5">Добавить</button>
+
+</form>
+      </div>
+{% for item in data %}
+<div class="card mt-4 ms-5 w-auto me-5" style="width: 18rem;">
+  <div class="card-header">
+    ID товара: {{ item.id_tovara }}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">ID поставки: {{item.id_postav}}</li>
+    <li class="list-group-item">Наименование товара: {{item.name}}</li>
+    <li class="list-group-item">Количество: {{item.kol_vo}} </li>
+    <li class="list-group-item">Цена: {{item.cena}} </li>
+  </ul>
+</div>
+{% endfor %}
+{% else %}
+<div class="alert alert-danger" role="alert">
+ Ошибка авторизации! пройдите регистрацию по <a href="{% url 'registration' %}" class="alert-link">ссылке</a>!
+</div>
+{% endif %}
+</body>
+</html>
