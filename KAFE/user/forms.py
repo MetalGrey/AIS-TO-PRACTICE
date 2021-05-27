@@ -11,7 +11,7 @@ class UserLoginForm(AuthenticationForm):
 class AddTovar(ModelForm):
     class Meta:
         model = Question
-        fields = ['id_tovara','id_postav','name','kol_vo','cena']
+        fields = ['id_tovara','id_postav','name','kol_vo','cena', 'image']
 
         widgets = {
             "id_tovara": forms.TextInput(attrs={
@@ -34,6 +34,7 @@ class AddTovar(ModelForm):
                 'class': 'form-control ms-5 mt-2',
                 'placeholder': 'цена'
             }),
+            "image": forms.FileInput,
 
         }
 

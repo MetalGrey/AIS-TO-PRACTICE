@@ -9,6 +9,7 @@ from .forms import UserCreationForm, UserLoginForm, AddTovar
 from django.contrib.auth import logout
 from .models import Question
 
+
 def index(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -37,7 +38,7 @@ def login(request):
 def home(request):
     addT = 0
     if request.method == 'POST':
-        addT = AddTovar(request.POST)
+        addT = AddTovar(request.POST, request.FILES)
         if addT.is_valid():
             addT.save()
 
