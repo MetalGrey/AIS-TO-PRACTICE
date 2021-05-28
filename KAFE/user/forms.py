@@ -13,30 +13,32 @@ class AddTovar(ModelForm):
         model = Question
         fields = ['id_tovara','id_postav','name','kol_vo','cena', 'image']
 
-        widgets = {
-            "id_tovara": forms.TextInput(attrs={
-                'class':'form-control ms-5 mt-2',
-                'placeholder': 'Id товара'
-            }),
-            "id_postav": forms.TextInput(attrs={
-                'class': 'form-control ms-5 mt-2',
-                'placeholder': 'Id поставщика'
-            }),
-            "name": forms.TextInput(attrs={
-                'class': 'form-control ms-5 mt-2',
-                'placeholder': 'имя'
-            }),
-            "kol_vo": forms.TextInput(attrs={
-                'class': 'form-control ms-5 mt-2',
-                'placeholder': 'количество'
-            }),
-            "cena": forms.TextInput(attrs={
-                'class': 'form-control ms-5 mt-2',
-                'placeholder': 'цена'
-            }),
-            "image": forms.FileInput,
+        # widgets = {
+        #     "id_tovara": forms.TextInput(attrs={
+        #         'class':'form-control ms-5 mt-2',
+        #         'placeholder': 'Id товара'
+        #     }),
+        #     "id_postav": forms.TextInput(attrs={
+        #         'class': 'form-control ms-5 mt-2',
+        #         'placeholder': 'Id поставщика'
+        #     }),
+        #     "name": forms.TextInput(attrs={
+        #         'class': 'form-control ms-5 mt-2',
+        #         'placeholder': 'имя'
+        #     }),
+        #     "kol_vo": forms.TextInput(attrs={
+        #         'class': 'form-control ms-5 mt-2',
+        #         'placeholder': 'количество'
+        #     }),
+        #     "cena": forms.TextInput(attrs={
+        #         'class': 'form-control ms-5 mt-2',
+        #         'placeholder': 'цена'
+        #     }),
+        #     "image": forms.FileInput,
+        #
+        # }
 
-        }
+
 
 
 

@@ -32,15 +32,16 @@
   </div>
 </nav>
 <div class="mb-3 ">
-<form method="post">
+<form method="post" enctype="multipart/form-data">
 
       {% csrf_token %}
-      {{addT.id_tovara}}
-      {{addT.id_postav}}
-      {{addT.name}}
-      {{addT.kol_vo}}
-      {{addT.cena}}
-        {{addT.image}}
+          {{addT.as_p}}
+<!--      {{addT.id_tovara}}-->
+<!--      {{addT.id_postav}}-->
+<!--      {{addT.name}}-->
+<!--      {{addT.kol_vo}}-->
+<!--      {{addT.cena}}-->
+<!--        {{addT.image}}-->
   <button type="submit" class="btn btn-primary mb-3 mt-2 ms-5">Добавить</button>
 
 </form>
